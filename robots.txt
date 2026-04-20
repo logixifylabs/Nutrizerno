@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.nutrizerno.com/sitemap.xml
+
+# Disallow admin or private areas (if any later)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Give crawlers more time for your image-heavy pages
+Crawl-delay: 2
