@@ -84,18 +84,20 @@
 <!-- NAV - Sleek & Compact -->
 <nav>
   <div class="logo">
-    <img src="./images/logo.png" alt="NutriZerno Logo" class="logo-img">
+    <a href="index.html"><img src="./images/logo.png" alt="NutriZerno Logo" class="logo-img"></a>
   </div>
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#plans">Diet Plans</a></li>
-    <li><a href="#story">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="index.html#plans">Diet Plans</a></li>
+    <li><a href="index.html#story">Story</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <!-- <li><a href="terms.html">Terms & Conditions</a></li> -->
   </ul>
   <div class="nav-buttons">
     <a href="https://wa.me/923335558306?text=Hi%20NutriZerno!%20I%20want%20to%20book%20a%20consultation." class="btn-outline nav-consultation" target="_blank">Consultation</a>
-    <a href="#contact" class="nav-cta">Contact</a>
+    <a href="index.html#contact" class="nav-cta">Contact</a>
     <button class="cart-button" onclick="openCart()" aria-label="Open cart">
       <span class="cart-icon">🛒</span>
       <span class="cart-badge" id="cartCount">0</span>
@@ -114,20 +116,40 @@
   <h1>Nourishing Health,<br><em>Naturally</em></h1>
   <p>Functional nutrition designed to support women's wellness, hormonal balance, and everyday vitality.</p>
   <div class="hero-btns">
-    <a href="#products" class="btn-primary">Shop Now</a>
+    <a href="products.html" class="btn-primary">Shop Now</a>
     <a href="#featured" class="btn-outline">Discover NutriZerno</a>
   </div>
 </section>
 
-<!-- BRAND INTRO -->
-<section id="intro" class="intro-section">
-  <div class="intro-content">
-    <h2 class="intro-title">About NutriZerno</h2>
-    <p class="intro-desc">
-      <strong>NutriZerno</strong> is a dietitian-led premium wellness brand in Pakistan committed to delivering <strong>functional nutrition</strong> through high-quality nuts, seeds, Talbeena blends, and weight loss premixes. Built on professional expertise and a passion for health, NutriZerno creates products that are natural, effective, and designed for real, visible results — especially for <strong>hormonal balance, PCOS management, and women's wellness</strong>.
-      <br><br>
-      We combine scientific nutrition with traditional superfoods to support modern lifestyles, helping you improve digestion, manage weight, boost energy, and nourish your body every day. Our <strong>seed cycling blends</strong> and <strong>Talbeena formulations</strong> are trusted by clients across Pakistan for sustainable health transformation.
-    </p>
+<!-- ABOUT NUTRIZERNO -->
+<section id="about" class="about-section">
+  <div class="section-tag">About NutriZerno</div>
+  <h2 class="section-title">Nutrition designed for real life</h2>
+  <div class="about-grid">
+    <div class="about-copy">
+      <p class="about-lead">NutriZerno is a dietitian-led wellness brand creating clean, effective nutrition for women who want balance, energy, and lasting health.</p>
+      <p>Founded by Dietitian Samawat, NutriZerno blends professional nutrition science with traditional superfoods like nuts, seeds, and Talbeena to support hormone balance, digestion, and everyday vitality.</p>
+      <p>Our products are made for modern routines: easy to use, naturally nourishing, and thoughtfully crafted for sustainable results — not gimmicks.</p>
+      <ul class="about-list">
+        <li>Dietitian-formulated blends for hormonal wellness.</li>
+        <li>Trusted ingredients with transparent nutrition.</li>
+        <li>Designed for busy women, families, and everyday life.</li>
+      </ul>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <h4>Trusted by experts</h4>
+        <p>Created by a clinical dietitian with real client experience in weight, hormone and energy support.</p>
+      </div>
+      <div class="about-card">
+        <h4>Natural, clean formulas</h4>
+        <p>We use wholesome ingredients with no fillers, artificial colors, or unhealthy additives.</p>
+      </div>
+      <div class="about-card">
+        <h4>Easy daily nutrition</h4>
+        <p>Simple blends and pre-mixes that fit into busy schedules and support long-term wellness.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -165,15 +187,15 @@
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section id="products">
+<!-- PRODUCTS (moved to products.html) -->
+<!-- <section id="products-teaser">
   <div class="products-header">
     <div class="section-tag">Our Products</div>
-    <h2 class="section-title">Premium nutrition, <em style="font-style:italic;color:var(--green)">for everyday wellness</em></h2>
-    <p class="section-sub">Functional nutrition designed to support your health journey.</p>
+    <h2 class="section-title">Premium nutrition, for everyday wellness</h2>
+    <p class="section-sub">Explore our full product range on the dedicated shop page.</p>
+    <a href="products.html" class="btn-primary" style="margin-top:18px;display:inline-block">Visit Shop</a>
   </div>
-  <div class="products-grid" id="productsGrid"></div>
-</section>
+</section> -->
 
 <!-- DIET PLANS -->
 <section id="plans" class="diet-plans-section">
@@ -331,202 +353,67 @@
 <section id="story" class="story-section">
   <div class="section-tag">Our Story</div>
   <h2 class="section-title">Nutrition designed by a dietitian for real life</h2>
-  <div class="story-content">
-    <div class="story-text">
-      <p><strong>Founder's Story: From Passion to Purpose</strong><br>
-      Dietitian Samawat — Clinical Dietitian • Wellness Coach • Research Scholar • Entrepreneur</p>
-      <p>NutriZerno began with a simple but powerful realization: </p>
-        <p>"I'm Dietitian Samawat, and as a dietitian I was guiding clients daily, helping them lose weight, balance hormones, and improve their health. But one challenge kept repeating."</p>
-      <p>NutriZerno was born from that insight: a need for healthy, trustworthy and convenient nutrition that truly supports modern wellness goals.</p>
-      <p>Dietician understood that many people were seeking effective solutions for weight loss, hormone balance, digestion and sustained energy, but the market offered either processed products, empty promises or complicated routines.</p>
-      <p>That led her to create NutriZerno — a premium wellness brand that blends scientific nutrition with traditional superfoods, starting with a modern Talbeena formulation crafted for everyday use.</p>
-      <p>Today, NutriZerno delivers premium nuts, seeds, Talbeena wellness blends and weight loss premixes that are personally formulated, tested and recommended based on real client needs.</p>
-      <p>Our brand promise is simple: natural ingredients, clean formulas and products made with the same care she would choose for her own clients and family.</p>
+  <div class="story-card">
+    <div class="story-copy">
+      <p class="story-lead">Built from real client experience, scientific knowledge, and practical nutrition that works in busy everyday life.</p>
+      <div class="story-copy-inner">
+        <div class="story-headline">
+          <span class="story-label">Founder's Story</span>
+          <h3>Dietitian Samawat — Clinical Dietitian • Wellness Coach • Research Scholar • Entrepreneur</h3>
+        </div>
+        <p>NutriZerno started with a simple but powerful insight: clients wanted trustworthy nutrition that delivers results without fake promises or complicated routines.</p>
+        <div class="story-quote">
+          <p>“As a dietitian, I was guiding clients daily through weight, hormone and energy struggles — but the market kept offering one-size-fits-all solutions. I wanted something real, effective and easy for modern life.”</p>
+        </div>
+        <div class="story-points">
+          <div class="story-point">
+            <h4>Practical for daily life</h4>
+            <p>Nutrition that fits your schedule, taste, and goals without added complexity.</p>
+          </div>
+          <div class="story-point">
+            <h4>Science-backed</h4>
+            <p>Designed with clinical expertise and real-world results in mind.</p>
+          </div>
+          <div class="story-point">
+            <h4>Trusted ingredients</h4>
+            <p>Made with wholesome seeds, nuts, and Talbeena blends for long-term wellness.</p>
+          </div>
+          <div class="story-point">
+            <h4>Everyday support</h4>
+            <p>Created for busy women seeking energy, balance, and sustainable health.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="story-image">
-      <img src="images/Hero.jpeg" alt="NutriZerno Founder Dietitian Samawat - Wellness Coach" class="story-img" loading="lazy">
+    <div class="story-image-card">
+      <div class="story-image-frame">
+        <img src="images/Hero.jpeg" alt="NutriZerno Founder Dietitian Samawat - Wellness Coach" class="story-img" loading="lazy">
+      </div>
+      <div class="story-badge">Dietitian-formulated wellness nutrition</div>
     </div>
   </div>
   <div class="mission-vision">
     <div class="mission-box">
-      <h3>Our Mission</h3>
-      <p>To make healthy living simple, effective and accessible through functional nutrition rooted in real ingredients.</p>
+      <div class="mission-card-header">
+        <span class="mission-tag">Our Mission</span>
+        <p>To make healthy living simple, effective and accessible through functional nutrition rooted in real ingredients.</p>
+      </div>
+      <ul class="mission-list">
+        <li>Simple nutrition that supports daily energy.</li>
+        <li>Nutrition built for modern life and real routines.</li>
+        <li>Clean ingredients with meaningful results.</li>
+      </ul>
     </div>
     <div class="vision-box">
-      <h3>Our Vision</h3>
-      <p>To become a trusted name in premium wellness nutrition for people seeking natural, result-driven support.</p>
-    </div>
-  </div>
-</section>
-<!-- TERMS & CONDITIONS - Modern Redesign -->
-<section id="terms" class="terms-section">
-  <div class="terms-container">
-    <div class="terms-header">
-      <div class="section-tag">Legal Information</div>
-      <h2 class="section-title">Terms & <span class="text-green">Conditions</span></h2>
-      <p class="terms-intro">Please read these terms carefully before using our website and services.</p>
-    </div>
-
-    <div class="terms-grid">
-      <!-- Card 1 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">🛒</div> -->
-        <h3>General Use</h3>
-        <div class="terms-card-content">
-          <p><strong>By using this website, you confirm that:</strong></p>
-          <ul>
-            <li>You are at least 18 years old or using it under parental guidance</li>
-            <li>All information provided by you is accurate and complete</li>
-            <li>You will not misuse the website for any unlawful or harmful activity</li>
-          </ul>
-          <p class="mt-2">NutriZerno reserves the right to update or modify these terms at any time without prior notice.</p>
-        </div>
+      <div class="mission-card-header">
+        <span class="mission-tag">Our Vision</span>
+        <p>To become a trusted name in premium wellness nutrition for people seeking natural, result-driven support.</p>
       </div>
-
-      <!-- Card 2 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">🌿</div> -->
-        <h3>Products & Information</h3>
-        <div class="terms-card-content">
-          <p>NutriZerno offers premium nuts, seeds, Talbeena blends, and wellness products formulated with care.</p>
-          <ul>
-            <li>All product descriptions, benefits, and nutritional information are provided for general awareness</li>
-            <li>Our products are not intended to diagnose, treat, cure, or prevent any disease</li>
-            <li>Individual results may vary depending on lifestyle, body type, and health conditions</li>
-          </ul>
-          <div class="terms-alert">
-            <span>💡</span>
-            <p>Always consult a qualified healthcare professional before starting any new diet or wellness product, especially if you have medical conditions.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">💳</div> -->
-        <h3>Pricing & Payments</h3>
-        <div class="terms-card-content">
-          <ul>
-            <li>All prices are listed in PKR (Pakistani Rupees)</li>
-            <li>NutriZerno reserves the right to change prices at any time without notice</li>
-            <li>Orders will only be processed after payment confirmation (for prepaid orders)</li>
-            <li>We may cancel orders due to pricing errors or stock issues</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">🚚</div> -->
-        <h3>Shipping & Delivery</h3>
-        <div class="terms-card-content">
-          <ul>
-            <li>Delivery timelines are estimated and may vary based on location and courier service</li>
-            <li>NutriZerno is not responsible for delays caused by courier companies or unforeseen circumstances</li>
-            <li>Customers must provide accurate shipping details to avoid delivery issues</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">🔄</div> -->
-        <h3>Returns & Refunds</h3>
-        <div class="terms-card-content">
-          <p><strong>Due to the nature of food products:</strong></p>
-          <ul>
-            <li><strong>No returns or exchanges are accepted once the product is opened</strong></li>
-            <li>Returns may only be accepted if:
-              <ul class="nested-list">
-                <li>The product is damaged or defective upon delivery</li>
-                <li>The wrong item was delivered</li>
-              </ul>
-            </li>
-          </ul>
-          <div class="terms-highlight">
-            <p>Any claim must be made within 24–48 hours of receiving the order, along with proof (images/videos).</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">⚖️</div> -->
-        <h3>Intellectual Property</h3>
-        <div class="terms-card-content">
-          <ul>
-            <li>All content on this website (including text, images, logos, and product descriptions) is the property of NutriZerno</li>
-            <li>You may not copy, reproduce, or distribute any content without written permission</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Card 7 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">⚠️</div> -->
-        <h3>Limitation of Liability</h3>
-        <div class="terms-card-content">
-          <p>NutriZerno will not be held liable for:</p>
-          <ul>
-            <li>Any allergic reactions or misuse of products</li>
-            <li>Health outcomes resulting from improper use</li>
-            <li>Indirect or incidental damages arising from product use</li>
-          </ul>
-          <p class="mt-2"><strong>Customers are responsible for checking ingredient suitability before consumption.</strong></p>
-        </div>
-      </div>
-
-      <!-- Card 8 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">🔐</div> -->
-        <h3>Privacy Policy</h3>
-        <div class="terms-card-content">
-          <p>Your personal information is kept secure and used only for:</p>
-          <ul>
-            <li>Order processing</li>
-            <li>Customer support</li>
-            <li>Improving our services</li>
-          </ul>
-          <p class="mt-2">We do not sell or share your data with third parties except as required for order fulfillment.</p>
-        </div>
-      </div>
-
-      <!-- Card 9 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">❌</div> -->
-        <h3>Order Cancellation</h3>
-        <div class="terms-card-content">
-          <p>NutriZerno reserves the right to cancel or refuse any order due to:</p>
-          <ul>
-            <li>Product unavailability</li>
-            <li>Payment issues</li>
-            <li>Suspicious or fraudulent activity</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Card 10 -->
-      <div class="terms-card">
-        <!-- <div class="terms-card-icon">📞</div> -->
-        <h3>Contact Information</h3>
-        <div class="terms-card-content">
-          <p>For any questions or concerns regarding these Terms & Conditions, you can contact us:</p>
-          <div class="contact-info-mini">
-            <p>📧 <strong>Email:</strong> nutrizerno@gmail.com</p>
-            <p>📱 <strong>Phone/WhatsApp:</strong> +92 3335558306</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Final Note Section -->
-    <div class="terms-final-note">
-      <div class="final-note-icon">🌟</div>
-      <div class="final-note-content">
-        <h3>Final Note</h3>
-        <p>By using our website, you agree to follow these Terms & Conditions. NutriZerno is committed to providing premium quality products and a trustworthy wellness experience.</p>
-        <p class="terms-updated">Last updated: April 2025</p>
-      </div>
+      <ul class="mission-list">
+        <li>Trusted by women who want balance and confidence.</li>
+        <li>Healthy habits that feel easy and sustainable.</li>
+        <li>Wellness that honors both science and tradition.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -603,8 +490,8 @@
     <div class="footer-links-group">
       <h4>Support</h4>
       <ul>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#terms">Terms & Conditions</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
         <li><a href="#privacy">Privacy Policy</a></li>
         <li><a href="https://wa.me/923335558306">WhatsApp Support</a></li>
       </ul>
@@ -693,6 +580,8 @@
   </div>
 </div>
 
+<script src="products.js"></script>
+<script src="cart-utils.js"></script>
 <script src="index.js"></script>
 </body>
 </html>

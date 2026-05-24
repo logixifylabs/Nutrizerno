@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - NutriZerno</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="./images/logoSquare.png">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="index.html"><img src="./images/logo.png" alt="NutriZerno Logo" class="logo-img"></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="index.html#plans">Diet Plans</a></li>
+      <li><a href="index.html#story">Story</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <!-- <li><a href="terms.html">Terms & Conditions</a></li> -->
+    </ul>
+    <div class="nav-buttons">
+      <a href="https://wa.me/923335558306?text=Hi%20NutriZerno!%20I%20want%20to%20book%20a%20consultation." class="btn-outline nav-consultation" target="_blank">Consultation</a>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+      <button class="cart-button" onclick="openCart()" aria-label="Open cart">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <main class="product-page">
+    <div class="page-header">
+      <div class="section-tag">Product Details</div>
+      <h2 class="section-title">Shop with NutriZerno&apos;s trusted wellness blends</h2>
+      <p class="section-sub">NutriZerno is a dietitian-led wellness brand in Pakistan, crafting natural nutrition for hormonal balance, energy, and everyday health.</p>
+    </div>
+    <div class="product-detail" id="productDetail">
+      <!-- Filled by script -->
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="./images/logo.png" alt="NutriZerno Logo" class="footer-logo">
+        <p>Functional nutrition for everyday health and vitality.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/share/1DbxPfG18h/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/nutrizerno_official?igsh=MWZhbjZ5MHFrbnpzcg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5zm-4 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm5-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/><circle cx="12" cy="12" r="2.5"/></svg>
+          </a>
+          <a href="https://wa.me/923335558306" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#plans">Diet Plans</a></li>
+          <li><a href="index.html#story">Our Story</a></li>
+          <li><a href="index.html#benefits">Why Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-group">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="index.html#privacy">Privacy Policy</a></li>
+          <li><a href="https://wa.me/923335558306">WhatsApp Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>📧 nutrizerno@gmail.com</p>
+        <p>📱 +92 333 555 8306</p>
+        <p>📍 Pakistan</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 <span>NutriZerno</span> — All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- CART MODAL -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal cart-modal">
+      <button class="modal-close" onclick="closeCart()">&#10005;</button>
+      <h2>Your Cart</h2>
+      <div class="cart-summary" id="cartSummary"></div>
+      <div class="cart-actions">
+        <button class="outline-btn" onclick="clearCart()">Clear Cart</button>
+        <button class="buy-btn" onclick="checkoutCart()">Continue Buying</button>
+      </div>
+      <div class="success-msg" id="cart-success">
+        Cart summary ready to send on WhatsApp.
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY MODAL -->
+  <div class="modal-overlay" id="buyModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      <h2>Complete your order</h2>
+      <div class="modal-product-info" id="modalProductInfo"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name *</label>
+          <input type="text" id="b-fname" placeholder="Ali" required>
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" id="b-lname" placeholder="Raza">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone / WhatsApp number *</label>
+        <input type="tel" id="b-phone" placeholder="+92 3XX XXXXXXX" required>
+      </div>
+      <div class="form-group">
+        <label>Email address *</label>
+        <input type="email" id="b-email" placeholder="ali@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Delivery address *</label>
+        <input type="text" id="b-address" placeholder="Street, City, Province" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Quantity</label>
+          <select id="b-qty">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Payment method</label>
+          <select id="b-pay">
+            <option>Cash on Delivery</option>
+            <option>EasyPaisa</option>
+            <option>JazzCash</option>
+            <option>Bank Transfer</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Special instructions (optional)</label>
+        <textarea id="b-notes" rows="2" placeholder="Any special request..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitOrder()">Place Order</button>
+      <div class="success-msg" id="order-success">
+        Order details sent to WhatsApp! We'll contact you shortly to confirm and process your order.
+      </div>
+    </div>
+  </div>
+
+  <script src="products.js"></script>
+  <script src="cart-utils.js"></script>
+  <script src="index.js"></script>
+  <script>
+    function qs(key) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(key);
+    }
+
+    const idx = parseInt(qs('id'), 10);
+    const container = document.getElementById('productDetail');
+    if (Number.isNaN(idx) || !window.products || !window.products[idx]) {
+      container.innerHTML = '<p>Product not found. <a href="index.html">Go back to shop</a></p>';
+    } else {
+      const p = window.products[idx];
+      container.innerHTML = `
+        <div class="product-card detail">
+          <div class="product-img-large"><img src="${p.icon}" alt="${p.name}" loading="lazy"></div>
+          <div class="product-info">
+            <h1>${p.name}</h1>
+            <div class="product-price">${p.price}</div>
+            <p class="product-desc">${p.desc}</p>
+            <div class="product-actions">
+              <button id="addToCartBtn" class="outline-btn">Add to cart</button>
+              <a class="buy-btn" id="whatsappOrder" target="_blank">Order via WhatsApp</a>
+              <a href="index.html" class="btn-outline">Back to Shop</a>
+            </div>
+            <div id="addConfirm" class="success-msg" style="display:none;margin-top:10px">Added to cart!</div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('addToCartBtn').addEventListener('click', function () {
+        nzCart.addProductToCart(p);
+        const msg = document.getElementById('addConfirm');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 2000);
+      });
+
+      const whatsappText = encodeURIComponent(`Hi NutriZerno! I want to order ${p.name}. Please share price and delivery details.`);
+      const waLink = document.getElementById('whatsappOrder');
+      waLink.href = `https://wa.me/923335558306?text=${whatsappText}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,17 +1,12 @@
-const products = [
-  { name: "HormoBalance Talbeena", badge: "Best Seller", icon: "./images/Product3.png", price: "PKR 899", desc: "250g | Dietitian-formulated functional blend specially designed to support hormonal balance in women, particularly those managing PCOS. Combines traditional barley nutrition with seed cycling blend for natural hormone support and healthy weight management." },
-  { name: "Golden Age Talbeena", badge: "Premium", icon: "./images/Product2.png", price: "PKR 799", desc: "250g | Luxurious, dietitian-crafted wellness blend inspired by traditional Sunnah nutrition. Ideal for complete nourishment, strength, and balanced health. Supports digestive health, heart vitality, mental calmness, and is suitable for all age groups, especially seniors." },
-  { name: "Luteal Phase Seed Mix", badge: "Featured", icon: "./images/Product8.jpeg", price: "PKR 899", desc: "200g | Sunflower Seeds + Sesame Seeds. Designed for your luteal phase (Day 15–28) with a nourishing blend to balance progesterone, reduce PMS symptoms, and promote calm, steady energy. Rich in selenium for liver detox, magnesium for mood support, and Vitamin E for glowing skin." },
-  { name: "Follicular Phase Seed Mix", badge: "Popular", icon: "./images/Product7.jpeg", price: "PKR 749", desc: "200g | Pumpkin Seeds + Flaxseeds. Support your body naturally during the follicular phase (Day 1–14) with a powerful blend rich in lignans and zinc. Helps balance estrogen levels, supports PCOS & cycle health, boosts energy & metabolism." },
-  { name: "Almonds (Badam)", badge: "Natural", icon: "./images/Product1.jpeg", price: "PKR 449 - 1,120", desc: "Premium quality King of Nuts. 100g = PKR 449 | 250g = PKR 1,120. Boosts brain function and memory, improves skin glow and hair strength, supports heart health. Rich in Vitamin E and healthy fats for maintaining energy levels." },
-  { name: "Foxnuts (Makhana)", badge: "Wellness", icon: "./images/Product4.jpeg", price: "PKR 400 - 749", desc: "Low-calorie superfood. 50g = PKR 400 | 100g = PKR 749. High in antioxidants, supports weight loss and fat control. Helps regulate blood sugar levels, supports heart and thyroid health. Perfect for healthy snacking and detox diets." },
-];
+// products are moved to products.js and loaded before this script
+const products = window.products || [];
 
 const grid = document.getElementById('productsGrid');
-const cart = [];
+let cart = JSON.parse(localStorage.getItem('nz_cart') || '[]');
 
 function getCartCount() {
-  return cart.reduce((sum, item) => sum + item.quantity, 0);
+  const c = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  return c.reduce((sum, item) => sum + (item.quantity || 0), 0);
 }
 
 function updateCartCount() {
@@ -26,12 +21,13 @@ function updateCartCount() {
 function renderCartItems() {
   const summary = document.getElementById('cartSummary');
   if (!summary) return;
-  if (!cart.length) {
+  const currentCart = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  if (!currentCart.length) {
     summary.innerHTML = '<p class="empty-cart">Your cart is empty. Add products to continue.</p>';
     return;
   }
 
-  summary.innerHTML = cart.map((item, index) => `
+  summary.innerHTML = currentCart.map((item, index) => `
     <div class="cart-item">
       <div class="cart-item-info">
         <span class="cart-item-name">${item.name}</span>
@@ -61,24 +57,26 @@ function closeCart() {
 }
 
 function changeCartQty(index, delta) {
-  if (!cart[index]) return;
-  cart[index].quantity += delta;
-  if (cart[index].quantity < 1) {
-    cart.splice(index, 1);
-  }
+  const c = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  if (!c[index]) return;
+  c[index].quantity = (c[index].quantity || 0) + delta;
+  if (c[index].quantity < 1) c.splice(index, 1);
+  localStorage.setItem('nz_cart', JSON.stringify(c));
   updateCartCount();
   renderCartItems();
 }
 
 function removeCartItem(index) {
-  if (!cart[index]) return;
-  cart.splice(index, 1);
+  const c = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  if (!c[index]) return;
+  c.splice(index, 1);
+  localStorage.setItem('nz_cart', JSON.stringify(c));
   updateCartCount();
   renderCartItems();
 }
 
 function clearCart() {
-  cart.length = 0;
+  localStorage.setItem('nz_cart', JSON.stringify([]));
   updateCartCount();
   renderCartItems();
 }
@@ -99,12 +97,15 @@ function checkoutCart() {
   window.open(whatsappUrl, '_blank');
   document.getElementById('cart-success').style.display = 'block';
   setTimeout(() => {
+    const cartModal = document.getElementById('cartModal');
+    if (cartModal) cartModal.classList.remove('open');
     document.getElementById('cart-success').style.display = 'none';
     closeCart();
   }, 3000);
 }
 
 products.forEach((p, i) => {
+  if (!grid) return;
   const whatsappText = encodeURIComponent(`Hi NutriZerno! I want to order ${p.name}. Please send me details about price and delivery.`);
   const card = document.createElement('div');
   card.className = 'product-card';
@@ -118,7 +119,7 @@ products.forEach((p, i) => {
       <div class="product-name">${p.name}</div>
       <div class="product-desc">${p.desc}</div>
       <div class="product-actions">
-        <button class="outline-btn" onclick="addToCart(${i})">Add to cart</button>
+        <a class="outline-btn" href="product.html?id=${i}">See More</a>
         <button class="buy-btn" onclick="openModal(${i})">Buy Now</button>
       </div>
       <a class="whatsapp-link" href="https://wa.me/923335558306?text=${whatsappText}" target="_blank">Order Via WhatsApp</a>
@@ -140,9 +141,12 @@ function closeModal() {
   document.getElementById('buyModal').classList.remove('open');
 }
 
-document.getElementById('buyModal').addEventListener('click', function (e) {
-  if (e.target === this) closeModal();
-});
+const buyModalEl = document.getElementById('buyModal');
+if (buyModalEl) {
+  buyModalEl.addEventListener('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+}
 
 const cartModal = document.getElementById('cartModal');
 if (cartModal) {
@@ -153,16 +157,14 @@ if (cartModal) {
 
 function addToCart(i) {
   const p = products[i];
-  const existing = cart.find(item => item.name === p.name);
+  const c = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  const existing = c.find(item => item.name === p.name);
   if (existing) {
     existing.quantity += 1;
   } else {
-    cart.push({
-      name: p.name,
-      price: p.price,
-      quantity: 1
-    });
+    c.push({ name: p.name, price: p.price, quantity: 1 });
   }
+  localStorage.setItem('nz_cart', JSON.stringify(c));
   updateCartCount();
   renderCartItems();
   alert(`${p.name} added to cart.`);
