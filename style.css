@@ -306,6 +306,15 @@ nav {
   .hero p {
     font-size: 16px;
   }
+
+  .about-section {
+    padding: 60px 20px;
+  }
+
+  .about-lead {
+    font-size: 17px;
+    line-height: 1.7;
+  }
 }
 
 .banner-section {
@@ -571,6 +580,7 @@ nav {
 
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
@@ -2116,6 +2126,19 @@ footer p {
   .hero p {
     font-size: 14px;
     margin-bottom: 30px;
+  }
+
+  .about-section {
+    padding: 40px 15px;
+  }
+
+  .about-lead {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .about-card {
+    padding: 20px;
   }
 
   .hero-btns {
