@@ -308,6 +308,21 @@ nav {
   }
 }
 
+.banner-section {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0px 0px;
+  /* position: relative */
+}
+
+.banner-section .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 /* HERO */
 .hero {
   min-height: 88vh;
@@ -848,7 +863,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(45,106,79,0.08) 0%, rgba(250,247,242,0.95) 100%);
+  background: linear-gradient(180deg, rgba(45, 106, 79, 0.08) 0%, rgba(250, 247, 242, 0.95) 100%);
   overflow: hidden;
   margin-bottom: 18px;
 }
@@ -2242,17 +2257,18 @@ footer p {
     padding: 30px 15px;
   }
 }
+
 /* NAV - Sleek & Compact */
 nav {
-  position: sticky; 
-  top: 0; 
+  position: sticky;
+  top: 0;
   z-index: 100;
-  background: rgba(250,247,242,0.98);
+  background: rgba(250, 247, 242, 0.98);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   padding: 0 5%;
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   height: 64px;
 }
@@ -2263,70 +2279,70 @@ nav {
   object-fit: contain;
 }
 
-.nav-links { 
-  display: flex; 
-  gap: 24px; 
-  list-style: none; 
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
 }
 
-.nav-links a { 
-  text-decoration: none; 
-  color: var(--muted); 
-  font-size: 14px; 
-  font-weight: 500; 
-  transition: color .2s; 
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color .2s;
 }
 
-.nav-links a:hover { 
-  color: var(--green); 
+.nav-links a:hover {
+  color: var(--green);
 }
 
-.nav-buttons { 
-  display: flex; 
-  gap: 10px; 
-  align-items: center; 
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .nav-consultation {
-  background: transparent; 
+  background: transparent;
   color: var(--green);
-  padding: 6px 16px; 
+  padding: 6px 16px;
   border-radius: 50px;
-  font-family: 'DM Sans', sans-serif; 
-  font-size: 13px; 
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  border: 1.5px solid var(--green); 
-  cursor: pointer; 
+  border: 1.5px solid var(--green);
+  cursor: pointer;
   text-decoration: none;
   transition: all .2s;
 }
 
-.nav-consultation:hover { 
-  background: var(--green-pale); 
+.nav-consultation:hover {
+  background: var(--green-pale);
 }
 
 .nav-cta {
-  background: var(--green); 
+  background: var(--green);
   color: var(--white);
-  border: none; 
-  padding: 8px 18px; 
+  border: none;
+  padding: 8px 18px;
   border-radius: 50px;
-  font-family: 'DM Sans', sans-serif; 
-  font-size: 13px; 
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  cursor: pointer; 
+  cursor: pointer;
   transition: background .2s;
   text-decoration: none;
 }
 
-.nav-cta:hover { 
-  background: var(--dark); 
+.nav-cta:hover {
+  background: var(--dark);
 }
 
 /* FOOTER - Clean & Professional */
 footer {
   background: #0f1e13;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   padding: 48px 5% 24px;
 }
 
@@ -2337,6 +2353,7 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .footer-container:nth-child(1) {
   text-align: left;
 }
@@ -2345,7 +2362,7 @@ footer {
   font-size: 14px;
   line-height: 1.6;
   margin: 16px 0;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-logo {
@@ -2367,10 +2384,10 @@ footer {
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: all .2s;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .social-links a:hover {
@@ -2408,7 +2425,7 @@ footer {
 }
 
 .footer-links-group ul li a {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 13px;
   transition: color .2s;
@@ -2422,14 +2439,14 @@ footer {
 .footer-contact p {
   font-size: 13px;
   margin-bottom: 12px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 32px;
   margin-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 13px;
 }
 
@@ -2446,16 +2463,16 @@ footer {
     text-align: center;
   }
 
-  
+
   .footer-links-group h4:after {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .social-links {
     justify-content: center;
   }
-  
+
   .footer-brand p {
     text-align: center;
   }
@@ -2470,11 +2487,11 @@ footer {
     align-items: flex-start;
     padding: 12px 20px;
   }
-  
+
   .logo .logo-img {
     height: 40px;
   }
-  
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -2482,11 +2499,11 @@ footer {
     width: 100%;
     margin-top: 16px;
   }
-  
+
   .nav-links.open {
     display: flex;
   }
-  
+
   .nav-buttons {
     display: none;
     flex-direction: column;
@@ -2494,20 +2511,23 @@ footer {
     width: 100%;
     margin-top: 16px;
   }
-  
+
   .nav-buttons.open {
     display: flex;
   }
-  
-  .nav-consultation, .nav-cta, .cart-button {
+
+  .nav-consultation,
+  .nav-cta,
+  .cart-button {
     text-align: center;
     width: 100%;
   }
-  .cart-button span{
+
+  .cart-button span {
     text-align: center;
     width: 100%;
   }
-  
+
   .hamburger {
     display: flex;
     position: absolute;
@@ -2521,6 +2541,7 @@ footer {
     display: none;
   }
 }
+
 /* TERMS & CONDITIONS - Modern Redesign */
 .terms-section {
   background: linear-gradient(135deg, #faf7f2 0%, #fff 100%);
@@ -2772,41 +2793,41 @@ footer {
   .terms-section {
     padding: 60px 20px;
   }
-  
+
   .terms-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .terms-card {
     padding: 20px;
   }
-  
+
   .terms-card h3 {
     font-size: 20px;
   }
-  
+
   .terms-final-note {
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 30px 24px;
   }
-  
+
   .final-note-icon {
     width: 60px;
     height: 60px;
     font-size: 32px;
   }
-  
+
   .final-note-content h3 {
     font-size: 24px;
   }
-  
+
   .final-note-content p {
     font-size: 14px;
   }
-  
+
   .terms-alert {
     flex-direction: column;
     align-items: flex-start;
@@ -2817,16 +2838,16 @@ footer {
   .terms-card-icon {
     font-size: 32px;
   }
-  
+
   .terms-card h3 {
     font-size: 18px;
   }
-  
+
   .terms-card-content p,
   .terms-card-content ul li {
     font-size: 13px;
   }
-  
+
   .terms-highlight p {
     font-size: 12px;
   }
