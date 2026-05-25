@@ -24,6 +24,8 @@ function renderCartItems() {
   const currentCart = JSON.parse(localStorage.getItem('nz_cart') || '[]');
   if (!currentCart.length) {
     summary.innerHTML = '<p class="empty-cart">Your cart is empty. Add products to continue.</p>';
+    const orderForm = document.getElementById('cartOrderForm');
+    if (orderForm) orderForm.classList.remove('open');
     return;
   }
 
@@ -41,6 +43,8 @@ function renderCartItems() {
       </div>
     </div>
   `).join('');
+  const orderForm = document.getElementById('cartOrderForm');
+  if (orderForm) orderForm.classList.remove('open');
 }
 
 function openCart() {
@@ -48,6 +52,8 @@ function openCart() {
   if (!cartModal) return;
   cartModal.classList.add('open');
   renderCartItems();
+  const orderForm = document.getElementById('cartOrderForm');
+  if (orderForm) orderForm.classList.remove('open');
 }
 
 function closeCart() {
@@ -82,26 +88,94 @@ function clearCart() {
 }
 
 function checkoutCart() {
-  if (!cart.length) {
+  const currentCart = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  if (!currentCart.length) {
     alert('Your cart is empty. Add products before continuing.');
     return;
   }
-  const lineItems = cart.map(item => `${item.quantity} x ${item.name} (${item.price})`).join('\n');
+  showCartOrderForm();
+}
+
+function showCartOrderForm() {
+  const currentCart = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  if (!currentCart.length) {
+    alert('Your cart is empty. Add products before continuing.');
+    return;
+  }
+
+  const orderForm = document.getElementById('cartOrderForm');
+  if (!orderForm) return;
+
+  document.getElementById('cart-order-success').style.display = 'none';
+  orderForm.classList.add('open');
+
+  const totalQty = currentCart.reduce((sum, item) => sum + (item.quantity || 0), 0) || 1;
+  const qtyInput = document.getElementById('cart-qty');
+  if (qtyInput) qtyInput.value = totalQty;
+
+  ['cart-fname', 'cart-lname', 'cart-phone', 'cart-email', 'cart-address', 'cart-notes'].forEach(id => {
+    const field = document.getElementById(id);
+    if (field) field.value = '';
+  });
+}
+
+function submitCartOrder() {
+  const fname = document.getElementById('cart-fname').value.trim();
+  const lname = document.getElementById('cart-lname').value.trim();
+  const phone = document.getElementById('cart-phone').value.trim();
+  const email = document.getElementById('cart-email').value.trim();
+  const address = document.getElementById('cart-address').value.trim();
+  const qty = document.getElementById('cart-qty').value;
+  const pay = document.getElementById('cart-pay').value;
+  const notes = document.getElementById('cart-notes').value.trim();
+
+  if (!fname || !phone || !email || !address) {
+    alert('Please fill in all required fields: name, phone, email, and address.');
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  if (!/^(\+92|92|0)?[3][0-9]{9}$/.test(phone.replace(/\s+/g, ''))) {
+    alert('Please enter a valid Pakistani phone number.');
+    return;
+  }
+
+  const currentCart = JSON.parse(localStorage.getItem('nz_cart') || '[]');
+  if (!currentCart.length) {
+    alert('Your cart is empty. Add products before continuing.');
+    return;
+  }
+
+  const lineItems = currentCart.map(item => `${item.quantity} x ${item.name} (${item.price})`).join('\n');
+  const fullName = fname + (lname ? ' ' + lname : '');
   const message = encodeURIComponent(
     `*🛒 NEW CART ORDER - NutriZerno*\n\n` +
-    `*Order Summary:*\n` +
+    `*👤 Customer Details:*\n` +
+    `Name: ${fullName}\n` +
+    `Phone: ${phone}\n` +
+    `Email: ${email}\n` +
+    `Delivery Address: ${address}\n\n` +
+    `*📦 Order Summary:*\n` +
     `${lineItems}\n\n` +
-    `Please share delivery charges and confirmation details.\n`
+    `Quantity: ${qty}\n` +
+    `Payment Method: ${pay}\n` +
+    `${notes ? `Special Instructions: ${notes}\n` : ''}\n` +
+    `*Please contact the customer to confirm and process the order.*`
   );
+
   const whatsappUrl = `https://wa.me/923335558306?text=${message}`;
   window.open(whatsappUrl, '_blank');
-  document.getElementById('cart-success').style.display = 'block';
+
+  const success = document.getElementById('cart-order-success');
+  if (success) success.style.display = 'block';
   setTimeout(() => {
-    const cartModal = document.getElementById('cartModal');
-    if (cartModal) cartModal.classList.remove('open');
-    document.getElementById('cart-success').style.display = 'none';
+    if (success) success.style.display = 'none';
     closeCart();
-  }, 3000);
+  }, 4000);
 }
 
 products.forEach((p, i) => {
@@ -110,19 +184,21 @@ products.forEach((p, i) => {
   const card = document.createElement('div');
   card.className = 'product-card';
   card.innerHTML = `
-    <div class="product-body">
+    <a class="product-card-link" href="product.html?id=${i}">
       <div class="product-top">
         <span class="product-badge">${p.badge}</span>
         <div class="product-price">${p.price}</div>
       </div>
       <div class="product-img"><img src="${p.icon}" alt="${p.name} - NutriZerno premium wellness product" loading="lazy"></div>
       <div class="product-name">${p.name}</div>
-      <div class="product-desc">${p.desc}</div>
+      <div class="product-snippet">${p.shortDesc || p.desc}</div>
+    </a>
+    <div class="product-body">
       <div class="product-actions">
         <a class="outline-btn" href="product.html?id=${i}">See More</a>
-        <button class="buy-btn" onclick="openModal(${i})">Buy Now</button>
+        <button class="buy-btn" onclick="openModal(${i}); event.stopPropagation();">Buy Now</button>
       </div>
-      <a class="whatsapp-link" href="https://wa.me/923335558306?text=${whatsappText}" target="_blank">Order Via WhatsApp</a>
+      <a class="whatsapp-link" href="https://wa.me/923335558306?text=${whatsappText}" target="_blank" onclick="event.stopPropagation();">Order Via WhatsApp</a>
     </div>`;
   grid.appendChild(card);
 });

@@ -7,32 +7,36 @@
 <!-- Primary SEO Meta Tags -->
 <title>NutriZerno | Contact Us</title>
 <meta name="title" content="NutriZerno | Contact Us">
-<meta name="description" content="Get in touch with NutriZerno. Reach out to Dietitian Samawat for product inquiries, diet plan consultations, and wellness support in Pakistan.">
-<meta name="keywords" content="nutrizerno, Talbeena Pakistan, seed cycling Pakistan, PCOS diet plan, hormonal balance nutrition, dietitian formulated, NutriZerno, women wellness Pakistan, weight loss plan, functional foods">
+<meta name="description" content="Contact NutriZerno for consultations, product inquiries, and dietitian-led wellness support across Pakistan.">
+<meta name="keywords" content="NutriZerno contact, dietitian consultation Pakistan, wellness support, Talbeena inquiries, PCOS nutrition help">
 <meta name="author" content="Dietitian Samawat - NutriZerno">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#1b6a39">
 <meta name="language" content="English">
 <meta name="revisit-after" content="7 days">
 <meta name="geo.region" content="PK">
 <meta name="geo.placename" content="Pakistan">
 
 <!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:locale" content="en_PK">
+<meta property="og:site_name" content="NutriZerno">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.nutrizerno.com/">
+<meta property="og:url" content="https://www.nutrizerno.com/contact.html">
 <meta property="og:title" content="NutriZerno | Contact Us">
-<meta property="og:description" content="Have questions? Contact us for professional nutritional advice and premium functional foods.">
+<meta property="og:description" content="Contact NutriZerno for consultations, product inquiries, and dietitian-led wellness support across Pakistan.">
 <meta property="og:image" content="https://www.nutrizerno.com/images/og-image.jpg">
-<meta property="og:image:alt" content="NutriZerno Product Collection - Talbeena and Seed Mixes">
+<meta property="og:image:alt" content="NutriZerno Contact Page - Dietitian Samawat Wellness Brand">
 
 <!-- Twitter Card Meta Tags -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://www.nutrizerno.com/">
+<meta property="twitter:url" content="https://www.nutrizerno.com/contact.html">
 <meta property="twitter:title" content="NutriZerno | Contact Us">
-<meta property="twitter:description" content="Get in touch with NutriZerno for personalized diet plans and wellness products.">
+<meta property="twitter:description" content="Contact NutriZerno for consultations, product inquiries, and dietitian-led wellness support across Pakistan.">
 <meta property="twitter:image" content="https://www.nutrizerno.com/images/og-image.jpg">
+<meta property="twitter:creator" content="@nutrizerno_official">
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://www.nutrizerno.com/">
+<link rel="canonical" href="https://www.nutrizerno.com/contact.html">
 <link rel="icon" type="image/png" href="./images/logoSquare.png">
 
 <link rel="stylesheet" href="style.css">
@@ -209,6 +213,53 @@
     <div class="cart-actions">
       <button class="outline-btn" onclick="clearCart()">Clear Cart</button>
       <button class="buy-btn" onclick="checkoutCart()">Continue Buying</button>
+    </div>
+    <div class="cart-order-form" id="cartOrderForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name *</label>
+          <input type="text" id="cart-fname" placeholder="Ali" required>
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" id="cart-lname" placeholder="Raza">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone / WhatsApp number *</label>
+        <input type="tel" id="cart-phone" placeholder="+92 3XX XXXXXXX" required>
+      </div>
+      <div class="form-group">
+        <label>Email address *</label>
+        <input type="email" id="cart-email" placeholder="ali@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Delivery address *</label>
+        <input type="text" id="cart-address" placeholder="Street, City, Province" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Quantity</label>
+          <input type="number" id="cart-qty" min="1" value="1">
+        </div>
+        <div class="form-group">
+          <label>Payment method</label>
+          <select id="cart-pay">
+            <option>Cash on Delivery</option>
+            <option>EasyPaisa</option>
+            <option>JazzCash</option>
+            <option>Bank Transfer</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Special instructions (optional)</label>
+        <textarea id="cart-notes" rows="2" placeholder="Any special request..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitCartOrder()">Send Order via WhatsApp</button>
+      <div class="success-msg" id="cart-order-success">
+        Order details sent to WhatsApp! We'll contact you shortly to confirm your order.
+      </div>
     </div>
     <div class="success-msg" id="cart-success">
       Cart summary ready to send on WhatsApp.

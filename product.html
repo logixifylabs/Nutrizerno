@@ -3,7 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Details - NutriZerno</title>
+  <title>NutriZerno Product Details | Wellness Nutrition</title>
+  <meta name="title" content="NutriZerno Product Details | Wellness Nutrition">
+  <meta name="description" content="Explore NutriZerno's dietitian-crafted wellness products, detailed benefits, suitability and reviews for Talbeena, seed mixes and premium nutrition in Pakistan.">
+  <meta name="keywords" content="NutriZerno product details, Talbeena review, hormonal health supplements, PCOS nutrition, seed cycling mix, dietitian products Pakistan">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#1b6a39">
+  <meta property="og:locale" content="en_PK">
+  <meta property="og:site_name" content="NutriZerno">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://www.nutrizerno.com/product.html">
+  <meta property="og:title" content="NutriZerno Product Details | Wellness Nutrition">
+  <meta property="og:description" content="Explore product details, reviews and benefits for NutriZerno wellness blends designed by Dietitian Samawat.">
+  <meta property="og:image" content="https://www.nutrizerno.com/images/og-image.jpg">
+  <meta property="og:image:alt" content="NutriZerno Product Detail Page">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.nutrizerno.com/product.html">
+  <meta property="twitter:title" content="NutriZerno Product Details | Wellness Nutrition">
+  <meta property="twitter:description" content="Explore product details, reviews and benefits for NutriZerno wellness blends.">
+  <meta property="twitter:image" content="https://www.nutrizerno.com/images/og-image.jpg">
+  <meta property="twitter:creator" content="@nutrizerno_official">
+  <link rel="canonical" href="https://www.nutrizerno.com/product.html">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="./images/logoSquare.png">
 </head>
@@ -103,6 +123,53 @@
         <button class="outline-btn" onclick="clearCart()">Clear Cart</button>
         <button class="buy-btn" onclick="checkoutCart()">Continue Buying</button>
       </div>
+      <div class="cart-order-form" id="cartOrderForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name *</label>
+            <input type="text" id="cart-fname" placeholder="Ali" required>
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" id="cart-lname" placeholder="Raza">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp number *</label>
+          <input type="tel" id="cart-phone" placeholder="+92 3XX XXXXXXX" required>
+        </div>
+        <div class="form-group">
+          <label>Email address *</label>
+          <input type="email" id="cart-email" placeholder="ali@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Delivery address *</label>
+          <input type="text" id="cart-address" placeholder="Street, City, Province" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" id="cart-qty" min="1" value="1">
+          </div>
+          <div class="form-group">
+            <label>Payment method</label>
+            <select id="cart-pay">
+              <option>Cash on Delivery</option>
+              <option>EasyPaisa</option>
+              <option>JazzCash</option>
+              <option>Bank Transfer</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Special instructions (optional)</label>
+          <textarea id="cart-notes" rows="2" placeholder="Any special request..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitCartOrder()">Send Order via WhatsApp</button>
+        <div class="success-msg" id="cart-order-success">
+          Order details sent to WhatsApp! We'll contact you shortly to confirm your order.
+        </div>
+      </div>
       <div class="success-msg" id="cart-success">
         Cart summary ready to send on WhatsApp.
       </div>
@@ -177,9 +244,78 @@
     const idx = parseInt(qs('id'), 10);
     const container = document.getElementById('productDetail');
     if (Number.isNaN(idx) || !window.products || !window.products[idx]) {
-      container.innerHTML = '<p>Product not found. <a href="index.html">Go back to shop</a></p>';
+      container.innerHTML = '<p>Product not found. <a href="products.html">Go back to shop</a></p>';
     } else {
       const p = window.products[idx];
+      const pageTitle = `${p.name} | NutriZerno`;
+      const pageDescription = p.shortDesc || p.intro || p.desc;
+      const pageImage = new URL(p.icon, window.location.origin).href;
+      const pageUrl = window.location.href;
+
+      document.title = pageTitle;
+      function setMeta(name, value, useProperty = false) {
+        const attr = useProperty ? 'property' : 'name';
+        const selector = `meta[${attr}="${name}"]`;
+        let el = document.querySelector(selector);
+        if (!el) {
+          el = document.createElement('meta');
+          el.setAttribute(attr, name);
+          document.head.appendChild(el);
+        }
+        el.setAttribute('content', value);
+      }
+      function setCanonical(href) {
+        let link = document.querySelector('link[rel="canonical"]');
+        if (!link) {
+          link = document.createElement('link');
+          link.rel = 'canonical';
+          document.head.appendChild(link);
+        }
+        link.href = href;
+      }
+      setMeta('description', pageDescription);
+      setMeta('og:title', pageTitle, true);
+      setMeta('og:description', pageDescription, true);
+      setMeta('og:url', pageUrl, true);
+      setMeta('og:image', pageImage, true);
+      setMeta('twitter:title', pageTitle, true);
+      setMeta('twitter:description', pageDescription, true);
+      setMeta('twitter:url', pageUrl, true);
+      setMeta('twitter:image', pageImage, true);
+      setCanonical(pageUrl);
+
+      const benefitsHtml = p.benefits && p.benefits.length > 0 ? `<div class="detail-card">
+            <h3>Key Benefits</h3>
+            <ul>${p.benefits.map(item => `<li>${item}</li>`).join('')}</ul>
+          </div>` : '';
+      const suitableHtml = p.suitableFor && p.suitableFor.length > 0 ? `<div class="detail-card">
+            <h3>Suitable For</h3>
+            <ul>${p.suitableFor.map(item => `<li>${item}</li>`).join('')}</ul>
+          </div>` : '';
+      const detailGridHtml = benefitsHtml || suitableHtml ? `<div class="detail-card-grid">
+            ${benefitsHtml}
+            ${suitableHtml}
+          </div>` : '';
+      const reviewRatings = p.reviews ? p.reviews.filter(r => typeof r.rating === 'number') : [];
+      const reviewCount = reviewRatings.length;
+      const overallRating = reviewCount > 0
+        ? reviewRatings.reduce((sum, review) => sum + review.rating, 0) / reviewCount
+        : (typeof p.rating === 'number' ? p.rating : null);
+      const ratingHtml = typeof overallRating === 'number'
+        ? `<div class="review-stars">
+            ${Array.from({ length: 5 }, (_, index) => index < Math.round(overallRating) ? '<span class="star filled">★</span>' : '<span class="star empty">☆</span>').join('')}
+            <span class="rating-value">${overallRating.toFixed(1)}/5${reviewCount > 0 ? ` (${reviewCount} review${reviewCount > 1 ? 's' : ''})` : ''}</span>
+          </div>`
+        : '';
+      const reviewHtml = p.reviews && p.reviews.length > 0
+        ? `${p.reviews.map(r => `<div class="single-review">
+              <div class="review-meta">
+                <strong>${r.name}</strong>
+                ${typeof r.rating === 'number' ? `<span class="review-score">${Array.from({ length: 5 }, (_, index) => index < r.rating ? '★' : '☆').join('')} ${r.rating}/5</span>` : ''}
+              </div>
+              <p>${r.comment}</p>
+            </div>`).join('')}`
+        : '<p>No reviews yet.</p>';
       container.innerHTML = `
         <div class="product-card detail">
           <div class="product-img-large"><img src="${p.icon}" alt="${p.name}" loading="lazy"></div>
@@ -187,21 +323,32 @@
             <h1>${p.name}</h1>
             <div class="product-price">${p.price}</div>
             <p class="product-desc">${p.desc}</p>
+            ${ratingHtml}
             <div class="product-actions">
               <button id="addToCartBtn" class="outline-btn">Add to cart</button>
               <a class="buy-btn" id="whatsappOrder" target="_blank">Order via WhatsApp</a>
-              <a href="index.html" class="btn-outline">Back to Shop</a>
+              <a href="products.html" class="btn-outline">Back to Shop</a>
             </div>
             <div id="addConfirm" class="success-msg" style="display:none;margin-top:10px">Added to cart!</div>
+          </div>
+        </div>
+        <div class="product-detail-cards">
+          <div class="detail-card">
+            <h3>Introduction</h3>
+            <p>${p.intro || p.desc}</p>
+          </div>
+          ${detailGridHtml}
+          <div class="review-card">
+            <h3>Reviews</h3>
+            ${reviewHtml}
           </div>
         </div>
       `;
 
       document.getElementById('addToCartBtn').addEventListener('click', function () {
         nzCart.addProductToCart(p);
-        const msg = document.getElementById('addConfirm');
-        msg.style.display = 'block';
-        setTimeout(() => { msg.style.display = 'none'; }, 2000);
+        updateCartCount();
+        openCart();
       });
 
       const whatsappText = encodeURIComponent(`Hi NutriZerno! I want to order ${p.name}. Please share price and delivery details.`);
