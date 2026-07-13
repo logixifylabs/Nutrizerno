@@ -26,7 +26,7 @@
     if (existing) {
       existing.quantity = (existing.quantity || 0) + 1;
     } else {
-      cart.push({ name: product.name, price: product.price, quantity: 1 });
+      cart.push({ name: product.name, price: (window.getProductDisplayPrice ? window.getProductDisplayPrice(product) : product.price), quantity: 1 });
     }
     saveCart(cart);
     updateCartCountElement();

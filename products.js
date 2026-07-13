@@ -1,10 +1,36 @@
 // Shared products list for the site
+window.getProductDisplayPrice = function (product) {
+  if (!product) return '';
+  const saleOffer = product.saleOffer && product.saleOffer.trim();
+  return saleOffer || product.price || '';
+};
+
+window.renderProductPrice = function (product) {
+  const originalPrice = product && product.price ? product.price : '';
+  const saleOffer = product && product.saleOffer && product.saleOffer.trim() ? product.saleOffer : '';
+
+  if (!originalPrice) return '';
+  if (!saleOffer) {
+    return `<div class="product-price">${originalPrice}</div>`;
+  }
+
+  return `
+    <div class="product-price-block">
+      <span class="product-price-badge">Sale</span>
+      <div class="product-price-stack">
+        <span class="product-price-sale">${saleOffer}</span>
+        <span class="product-price-original">${originalPrice}</span>
+      </div>
+    </div>`;
+};
+
 window.products = [
   {
     name: "HormoBalance Talbeena",
     badge: "Best Seller",
     icon: "./images/Product3.png",
     price: "PKR 1499",
+    saleOffer: "PKR 999",
     rating: 5,
     shortDesc: "250g | Functional blend for hormonal balance, PCOS support, and women's wellness.",
     desc: "250g | Dietitian-formulated functional blend specially designed to support hormonal balance in women, particularly those managing PCOS.",
@@ -36,6 +62,16 @@ window.products = [
         name: "Ayesha K.",
         rating: 5,
         comment: "I've been using HormoBalance Talbeena for a few weeks now, and I'm seeing great results. My cycles are more regular, and I feel more energetic!"
+      },
+      {
+        name: "Zain Ul Abideen",
+        rating: 5,
+        comment: "Alhamdulillah 3 haftay se HormoBalance Talbeena use kar rahi hun. Bloating kaafi kam hui hai aur subah energy bhi bohat achi feel hoti hai. Taste bhi natural aur bohat yummy hai. Definitely recommend"
+      },
+      {
+        name: "Tabassum",
+        rating: 5,
+        comment: "Packaging bohat achi thi aur parcel time par receive hua. Talbeena ka taste bhi zabardast hai. Rozana breakfast mein use kar rahi hun aur bohat satisfying lagti hai."
       }
     ]
   },
@@ -44,6 +80,7 @@ window.products = [
     badge: "Premium",
     icon: "./images/Product2.png",
     price: "PKR 1299",
+    saleOffer: "PKR 899",
     rating: 5,
     shortDesc: "250g | Nourishing Talbeena for elderly adults with gentle digestion and energy support.",
     desc: "250g | Nourishing Talbeena crafted to support gentle digestion, energy, and comfort for elderly adults.",
@@ -70,9 +107,19 @@ window.products = [
     ],
     reviews: [
       {
-        name: "Ali",
+        name: "Aliya",
         rating: 5,
         comment: "I've been using Golden Age Talbeena for a few weeks now, and I'm seeing great results. My digestion has improved, and I feel more energetic!"
+      },
+      {
+        name: "Sadia",
+        rating: 5,
+        comment: "Maine apne parents ke liye Golden Age Talbeena order ki thi. Dono ko bohat pasand aayi. Light, nutritious aur breakfast ke liye perfect choice hai."
+      },
+      {
+        name: "Hina",
+        rating: 5,
+        comment: "Mujhe Golden Age Talbeena ka taste aur texture bohat pasand aya. Rozana use karne se energy aur digestion dono improve hui hain. Highly recommend!"
       }
     ]
   },
@@ -81,6 +128,7 @@ window.products = [
     badge: "Featured",
     icon: "./images/Product8.jpeg",
     price: "PKR 899",
+    // saleOffer: "PKR 599",
     rating: 5,
     shortDesc: "200g | Luteal phase seed blend for PMS relief, calm energy and hormone support.",
     desc: "200g | Sunflower Seeds + Sesame Seeds. Designed for your luteal phase (Day 15–28) with a nourishing blend to balance progesterone, reduce PMS symptoms, and promote calm, steady energy. Rich in selenium for liver detox, magnesium for mood support, and Vitamin E for glowing skin.",
@@ -119,6 +167,7 @@ window.products = [
     badge: "Popular",
     icon: "./images/Product7.jpeg",
     price: "PKR 749",
+    // saleOffer: "PKR 599",
     rating: 5,
     shortDesc: "200g | Follicular phase mix to support estrogen balance, energy and metabolism.",
     desc: "200g | Pumpkin Seeds + Flaxseeds. Support your body naturally during the follicular phase (Day 1–14) with a powerful blend rich in lignans and zinc. Helps balance estrogen levels, supports PCOS & cycle health, boosts energy & metabolism.",
@@ -157,6 +206,7 @@ window.products = [
     badge: "Natural",
     icon: "./images/Product1.jpeg",
     price: "PKR 449 - 1,120",
+    // saleOffer: "PKR 599",
     rating: 5,
     shortDesc: "Premium almonds for energy, skin glow, hair strength and heart support.",
     desc: "Premium quality King of Nuts. 100g = PKR 449 | 250g = PKR 1,120. Boosts brain function and memory, improves skin glow and hair strength, supports heart health. Rich in Vitamin E and healthy fats for maintaining energy levels.",
@@ -196,6 +246,7 @@ window.products = [
     badge: "Wellness",
     icon: "./images/Product4.jpeg",
     price: "PKR 400 - 749",
+    // saleOffer: "PKR 599",
     rating: 5,
     shortDesc: "Light antioxidant-rich foxnuts for healthy snacking, digestion, and energy.",
     desc: "Low-calorie superfood. 50g = PKR 400 | 100g = PKR 749. High in antioxidants, supports weight loss and fat control. Helps regulate blood sugar levels, supports heart and thyroid health. Perfect for healthy snacking and detox diets.",

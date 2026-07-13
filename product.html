@@ -321,7 +321,7 @@
           <div class="product-img-large"><img src="${p.icon}" alt="${p.name}" loading="lazy"></div>
           <div class="product-info">
             <h1>${p.name}</h1>
-            <div class="product-price">${p.price}</div>
+            ${window.renderProductPrice(p)}
             <p class="product-desc">${p.desc}</p>
             ${ratingHtml}
             <div class="product-actions">

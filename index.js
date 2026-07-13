@@ -187,7 +187,7 @@ products.forEach((p, i) => {
     <a class="product-card-link" href="product.html?id=${i}">
       <div class="product-top">
         <span class="product-badge">${p.badge}</span>
-        <div class="product-price">${p.price}</div>
+        ${window.renderProductPrice(p)}
       </div>
       <div class="product-img"><img src="${p.icon}" alt="${p.name} - NutriZerno premium wellness product" loading="lazy"></div>
       <div class="product-name">${p.name}</div>
@@ -207,7 +207,7 @@ updateCartCount();
 
 function openModal(i) {
   const p = products[i];
-  document.getElementById('modalProductInfo').innerHTML = `Ordering: <strong>${p.name}</strong><br><span style="color:var(--muted);font-size:13px">${p.price} per unit</span>`;
+  document.getElementById('modalProductInfo').innerHTML = `Ordering: <strong>${p.name}</strong><br><span style="color:var(--muted);font-size:13px">${window.getProductDisplayPrice(p)} per unit</span>`;
   document.getElementById('buyModal').classList.add('open');
   document.getElementById('order-success').style.display = 'none';
   ['b-fname', 'b-lname', 'b-phone', 'b-email', 'b-address', 'b-notes'].forEach(id => document.getElementById(id).value = '');
@@ -238,7 +238,7 @@ function addToCart(i) {
   if (existing) {
     existing.quantity += 1;
   } else {
-    c.push({ name: p.name, price: p.price, quantity: 1 });
+    c.push({ name: p.name, price: window.getProductDisplayPrice(p), quantity: 1 });
   }
   localStorage.setItem('nz_cart', JSON.stringify(c));
   updateCartCount();
