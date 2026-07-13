@@ -14,6 +14,7 @@ window.renderProductPrice = function (product) {
     return `<div class="product-price">${originalPrice}</div>`;
   }
 
+  // Only show the sale badge and struck-through original price when saleOffer is present
   return `
     <div class="product-price-block">
       <span class="product-price-badge">Sale</span>
