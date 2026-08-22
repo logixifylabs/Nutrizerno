@@ -197,7 +197,7 @@ window.products = [
     reviews: [
       {
         name: "Fatima",
-        rating: 5, 
+        rating: 5,
         comment: "I've been using the Follicular Phase Seed Mix for a month now, and it has made a noticeable difference in my energy levels and cycle regularity. I feel more balanced and vibrant during the first half of my cycle!"
       }
     ]
@@ -279,6 +279,44 @@ window.products = [
         name: "Sara",
         rating: 5,
         comment: "I've been using the Follicular Phase Seed Mix for a month now, and it has made a noticeable difference in my energy levels and cycle regularity. I feel more balanced and vibrant during the first half of my cycle!"
+      }
+    ]
+  },
+  {
+    name: "NutriZerno METORA — Herbal Metabolism Tea",
+    badge: "Wellness",
+    icon: "./images/Product9.jpeg",
+    price: "PKR 899",
+    // saleOffer: "PKR 799",
+    rating: 5,
+    shortDesc: "A refreshing herbal tea blend with cinnamon, black seeds, fenugreek, fennel, green tea, and selected herbs to support digestion, metabolism, and healthy weight-management goals.",
+    desc: "NutriZerno METORA is a carefully crafted 100g herbal tea blend combining cinnamon, black seeds (kalonji), fenugreek seeds (methi), fennel seeds (saunf), green tea, and selected natural herbs. It is designed to complement a balanced diet and active lifestyle while supporting healthy metabolism, digestive comfort, weight-management goals, and overall wellness.",
+    intro: "NUTRIZERNO METORA is a wholesome herbal metabolism tea made with carefully selected plant-based ingredients. The blend combines cinnamon, black seeds, fenugreek, fennel, green tea, and selected herbs to create a refreshing daily wellness drink. It can be enjoyed as part of a balanced lifestyle and may help support digestive comfort, occasional bloating, metabolic wellness, and healthy weight-management goals.",
+    benefits: [
+      "Supports a healthy metabolism",
+      "Complements healthy weight-management goals",
+      "Promotes digestive comfort",
+      "May help reduce occasional bloating",
+      "Supports overall metabolic wellness",
+      "Made with carefully selected plant-based ingredients",
+      "Refreshing alternative to sugary beverages",
+      "Ideal for an active and balanced lifestyle"
+    ],
+    suitableFor: [
+      "Adults working toward healthy weight-management goals",
+      "People looking to support digestive health",
+      "Those interested in metabolic wellness",
+      "People experiencing occasional bloating",
+      "Anyone looking for a healthier alternative to sugary beverages",
+      "Individuals following an active and balanced lifestyle",
+      "Adults who enjoy herbal and green tea blends",
+      "Anyone looking to add herbal goodness to their daily routine"
+    ],
+    reviews: [
+      {
+        name: "Ayesha",
+        rating: 5,
+        comment: "METORA has a refreshing herbal taste and has become a pleasant part of my daily wellness routine. I especially enjoy it as an alternative to sugary drinks."
       }
     ]
   }
