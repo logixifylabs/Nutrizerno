@@ -153,13 +153,13 @@ function submitCartOrder() {
   const lineItems = currentCart.map(item => `${item.quantity} x ${item.name} (${item.price})`).join('\n');
   const fullName = fname + (lname ? ' ' + lname : '');
   const message = encodeURIComponent(
-    `*🛒 NEW CART ORDER - NutriZerno*\n\n` +
-    `*👤 Customer Details:*\n` +
+    `*NEW CART ORDER - NutriZerno*\n\n` +
+    `*Customer Details:*\n` +
     `Name: ${fullName}\n` +
     `Phone: ${phone}\n` +
     `Email: ${email}\n` +
     `Delivery Address: ${address}\n\n` +
-    `*📦 Order Summary:*\n` +
+    `*Order Summary:*\n` +
     `${lineItems}\n\n` +
     `Quantity: ${qty}\n` +
     `Payment Method: ${pay}\n` +
@@ -273,18 +273,18 @@ function submitOrder() {
   // Construct WhatsApp message
   const fullName = fname + (lname ? ' ' + lname : '');
   const message = encodeURIComponent(
-    `*🆕 NEW ORDER - NutriZerno*\n\n` +
-    `*👤 Customer Details:*\n` +
+    `*NEW ORDER - NutriZerno*\n\n` +
+    `*Customer Details:*\n` +
     `Name: ${fullName}\n` +
-    `📱 Phone: ${phone}\n` +
-    `📧 Email: ${email}\n` +
-    `🏠 Address: ${address}\n\n` +
-    `*📦 Order Details:*\n` +
+    `Phone: ${phone}\n` +
+    `Email: ${email}\n` +
+    `Address: ${address}\n\n` +
+    `*Order Details:*\n` +
     `${productInfo}\n` +
     `Quantity: ${qty}\n` +
-    `💳 Payment Method: ${pay}\n` +
-    `${notes ? `📝 Special Instructions: ${notes}\n` : ''}\n` +
-    `*⚡ Please contact customer to confirm and process this order immediately.*`
+    `Payment Method: ${pay}\n` +
+    `${notes ? `Special Instructions: ${notes}\n` : ''}\n` +
+    `*Please contact customer to confirm and process this order immediately.*`
   );
 
   // WhatsApp URL
@@ -316,11 +316,11 @@ function sendContactMsg() {
 
   // Create WhatsApp message
   const message = encodeURIComponent(
-    `*📬 NEW MESSAGE - NutriZerno Website*\n\n` +
-    `*👤 From:* ${name}\n` +
-    `*📧 Email:* ${email}\n\n` +
-    `*💬 Message:*\n${msg}\n\n` +
-    `*⏰ Please reply to this customer as soon as possible.*`
+    `*NEW MESSAGE - NutriZerno Website*\n\n` +
+    `*From:* ${name}\n` +
+    `*Email:* ${email}\n\n` +
+    `*Message:*\n${msg}\n\n` +
+    `*Please reply to this customer as soon as possible.*`
   );
 
   // Send via WhatsApp

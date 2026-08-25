@@ -17,6 +17,28 @@
   padding: 0;
 }
 
+.icon-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+}
+
+.icon-shell svg {
+  width: 1.2em;
+  height: 1.2em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-shell svg.fill-icon {
+  fill: currentColor;
+  stroke: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -1360,6 +1382,18 @@ section {
   justify-content: center;
   font-size: 22px;
   margin-bottom: 16px;
+  color: var(--green);
+}
+
+.benefit-icon .icon-shell,
+.plan-icon .icon-shell,
+.why-icon .icon-shell,
+.step-icon .icon-shell,
+.contact-icon .icon-shell,
+.final-note-icon .icon-shell,
+.terms-card-icon .icon-shell {
+  width: 100%;
+  height: 100%;
 }
 
 .benefit-card h3 {
@@ -1841,6 +1875,10 @@ section {
 .plan-icon {
   font-size: 48px;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
 }
 
 .plan-title {
@@ -1939,6 +1977,10 @@ section {
 .why-icon {
   font-size: 32px;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
 }
 
 .why-item p {
@@ -1980,6 +2022,10 @@ section {
 
 .step-icon {
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
 }
 
 .step p {
@@ -2354,6 +2400,7 @@ section {
   justify-content: center;
   font-size: 18px;
   flex-shrink: 0;
+  color: var(--green);
 }
 
 .contact-detail-text {
@@ -3137,6 +3184,10 @@ footer {
 .terms-card-icon {
   font-size: 40px;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
 }
 
 .terms-card h3 {
@@ -3198,6 +3249,10 @@ footer {
 
 .terms-alert span {
   font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5a623;
 }
 
 .terms-alert p {
@@ -3263,6 +3318,7 @@ footer {
   justify-content: center;
   background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
   box-shadow: 0 8px 20px rgba(45, 106, 79, 0.3);
+  color: #fff;
   flex-shrink: 0;
 }
 
