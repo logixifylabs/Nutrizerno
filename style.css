@@ -813,7 +813,7 @@ nav {
 }
 
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
+  /* font-family: 'Cormorant Garamond', serif; */
   font-size: 36px;
   font-weight: 600;
   color: var(--green-light);
