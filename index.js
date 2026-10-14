@@ -342,6 +342,8 @@ function sendContactMsg() {
 function toggleMenu() {
   const navLinks = document.querySelector('.nav-links');
   const navButtons = document.querySelector('.nav-buttons');
-  navLinks.classList.toggle('open');
-  navButtons.classList.toggle('open');
+  const menuButton = document.querySelector('.hamburger');
+  const isOpen = navLinks.classList.toggle('open');
+  navButtons.classList.toggle('open', isOpen);
+  menuButton.setAttribute('aria-expanded', String(isOpen));
 }

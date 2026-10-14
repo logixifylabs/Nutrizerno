@@ -91,10 +91,11 @@
   <div class="logo">
     <a href="index.html"><img src="./images/logo.png" alt="NutriZerno Logo" class="logo-img"></a>
   </div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="primary-navigation">
     <li><a href="index.html">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="products.html">Products</a></li>
+    <li><a href="e-planner.html">E-Planner</a></li>
     <li><a href="index.html#plans">Diet Plans</a></li>
     <li><a href="#consultation">Medical Consultation</a></li>
     <li><a href="index.html#story">Story</a></li>
@@ -111,11 +112,11 @@
       <span class="cart-badge" id="cartCount">0</span>
     </button>
   </div>
-  <div class="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-controls="primary-navigation" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
-  </div>
+  </button>
 </nav>
 
 <!-- HERO -->
